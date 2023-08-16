@@ -43,7 +43,7 @@ Use `forEach` to loop over the input array. The modified strings should each be 
 ------------------------------------------------------------------------------------------------ */
 
 const allUpperCase = (arr) => {
-  let newArr = [];
+  const newArr = [];
   arr.forEach(value =>{
     newArr.push(value.toUpperCase());
   });
@@ -62,11 +62,15 @@ Use `forEach` to build a new array of strings, each string modified by the callb
 ------------------------------------------------------------------------------------------------ */
 
 const greeting = (word) => {
-  // Solution code here...
+  return word.toUpperCase() + '!';
 };
 
 const speaker = (words, callback) => {
-  // Solution code here...
+  const newArr = [];
+  words.forEach(value => {
+    newArr.push(callback(value));
+  });
+  return newArr;
 };
 
 /* ------------------------------------------------------------------------------------------------
@@ -86,11 +90,14 @@ Return the modified array.
 ------------------------------------------------------------------------------------------------ */
 
 const addValues = (arr, value) => {
-  // Solution code here...
+  arr.push(value);
 };
 
 const addNumbers = (num, arr, times, callback) => {
-  // Solution code here...
+  for(let i=0; i<times; i++){
+    callback(arr, num);
+  }
+  return arr;
 };
 
 /* ------------------------------------------------------------------------------------------------
@@ -112,7 +119,13 @@ This function should use forEach to populate your grocery list based on the stor
 ------------------------------------------------------------------------------------------------ */
 
 const createList = (availableItems) => {
-  // Solution code here...
+  const storeInventory = [];
+  availableItems.forEach(value => {
+    if(value.available === true){
+      storeInventory.push(value.name);
+    }
+  });
+  return storeInventory;
 };
 
 /* ------------------------------------------------------------------------------------------------
